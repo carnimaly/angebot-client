@@ -167,7 +167,7 @@ pdfDocGenerator.getDataUrl((dataUrl) => {
   setDat(dataUrl)
   console.log(angebot)
   const datum = DateTime.fromISO(angebot.eckdaten.vaortzeit).toFormat("dd.LL.yyyy");
-  const text = "Sehr geehrte/r "+angebot.auftraggeber.auftraggeberAnsprechpartner+",\nanbei erhalten Sie heute Ihr Angebot für Ihre:\n"+angebot.eckdaten.vaname+"\nam "+datum+"\nfür "+angebot.eckdaten.vapers+" Personen\n\nSie können das Angebot unter folgendem Link Bestätigen oder Ablehnen:\nhttp://localhost:3000/offer/"+angebot._id+"\n\nBei Rückfragen Melden Sie sich gerne bei uns."
+  const text = "Sehr geehrte/r "+angebot.auftraggeber.auftraggeberAnsprechpartner+",\nanbei erhalten Sie heute Ihr Angebot für Ihre:\n"+angebot.eckdaten.vaname+"\nam "+datum+"\nfür "+angebot.eckdaten.vapers+" Personen\n\nSie können das Angebot unter folgendem Link Bestätigen oder Ablehnen:\nhttps://61ec1f8e00889f09657ae810--wonderful-stonebraker-c60436.netlify.app//offer/"+angebot._id+"\n\nBei Rückfragen Melden Sie sich gerne bei uns."
   setMailContent((o) => ({...o, subject: "Angebot für "+angebot.eckdaten.vaname+" am "+datum, mailTo : angebot.auftraggeber.auftraggeberEmail, text : text, mailFrom : "angebot@denzu.de"}))
 
 })
